@@ -3,7 +3,7 @@ import random
 
 class Person:
 
-    def __init__(self, name: str, age: int = 0, wealth=0):
+    def __init__(self, name: str, age: int = 0, wealth: int = 0):
         self.wealth = wealth
         self.name = name
         self.age = age
@@ -24,13 +24,14 @@ class Person:
         else:
             return False
 
-    def check_equal(self, person_b):
+    def check_equal(self, person_b) -> None:
+        """Checks if two instances are the same person"""
         if self == person_b:
             print("{} and {} are equal".format(self.name, person_b.name))
         else:
             print("{} and {} are not equal".format(self.name, person_b.name))
 
-    def check_wealth(self):
+    def check_wealth(self) -> None:
         if self.wealth < 0:
             self.wealth = 0
 
@@ -40,19 +41,19 @@ class Person:
 
 class Fighter(Person):
 
-    def __new__(cls, name: str, age: int, wealth: int = 0, spear=0, unarmed_combat=0, mace=0, broadsword=0):
+    def __new__(cls, name: str, age: int, wealth: int = 0, spear: int = 0, unarmed_combat: int = 0, mace: int = 0, broadsword: int = 0):
         if age < 18:
             print("Fighter cannot be under 18, creating a Person instead")
             return Person(name, age, wealth)
         else:
             return super(Fighter, cls).__new__(cls)
 
-    def __init__(self, name: str, age: int, wealth=0, spear=0, unarmed_combat=0, mace=0, broadsword=0):
+    def __init__(self, name: str, age: int, wealth: int = 0, spear: int = 0, unarmed_combat: int = 0, mace: int = 0, broadsword: int = 0) -> None:
         Person.__init__(self, name, age, wealth)
         self.is_adult()
         self.__skills_dict = {'spear': self.check_skill_level(spear), 'unarmed_combat': self.check_skill_level(unarmed_combat), 'mace': self.check_skill_level(mace), 'broadsword': self.check_skill_level(broadsword)}
 
-    def check_skill_level(self, skill: str):
+    def check_skill_level(self, skill: str) -> int:
         if skill < 0:
             return 0
         elif skill > 10:
@@ -185,7 +186,7 @@ class Fight:
 
 class Warrior(Fighter):
 
-    def __init__(self, name: str, age: int, wealth=0, spear=0, unarmed_combat=0, mace=0, broadsword=0,
+    def __init__(self, name: str, age: int, wealth: int = 0, spear: int = 0, unarmed_combat: int = 0, mace: int = 0, broadsword: int = 0,
                  challenge_list=list()) -> None:
         Fighter.__init__(self, name, age, wealth, spear, unarmed_combat, mace, broadsword)
         self.challenge_list = challenge_list
