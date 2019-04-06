@@ -1,0 +1,87 @@
+from Main import Fighter
+from Main import Warrior
+from Main import Person
+from Main import KnightErrant
+
+print("~~~~~~~~Test Case 1~~~~~~~~~~")
+person = Person("Hannah", 19, 10)
+person2 = Person("Courtney", 26, 79)
+person3 = Person("Hannah", 19, 10)
+person4 = person
+person.check_equal(person2)
+person.check_equal(person3)
+person.check_equal(person4)
+print("is {} an adult? {}".format(person.name, person.is_adult()))
+
+print("~~~~~~~~Test Case 2~~~~~~~~~~")
+invalid_fighter = Fighter("Jane", 9, 0, 1, 2, 3, 0)
+print(invalid_fighter)
+
+print("\n~~~~~~~~Test Case 3~~~~~~~~~~")
+fighter2 = Fighter("John", 22, 60, 8, 5, -6, 2)
+print(fighter2)
+
+print("\n~~~~~~~~Test Case 4~~~~~~~~~~")
+fighter3 = Fighter("Kelly", 27, 5, 4, 7, 1, 0)
+fighter3.challenge(fighter2, "mace")
+
+print("\n~~~~~~~~Test Case 5~~~~~~~~~~")
+warrior = Warrior("Joe", 45, 100, 2, 6, 3, 1)
+warrior.challenge(fighter2, "broadsword")
+fighter2.challenge(warrior, "broadsword")
+warrior.accept_first()
+
+print("\n~~~~~~~~Test Case 6~~~~~~~~~~")
+warrior2 = Warrior("Alex", 30, 91, 6, 2, 1, 10)
+fighter2.challenge(warrior2, "spear")
+warrior.challenge(warrior2, "unarmed_combat")
+fighter3.challenge(warrior2, "broadsword")
+print(warrior2)
+warrior2.accept_random()
+warrior2.decline_first()
+
+print("\n~~~~~~~~Test Case 7~~~~~~~~~~")
+fighter2.challenge(warrior2, "spear")
+fighter3.challenge(warrior2, "mace")
+warrior3 = Warrior("Tim", 56, 89, 8, 10, 10)
+warrior3.challenge(warrior2, "broadsword")
+warrior2.accept_first()
+warrior2.decline_random()
+warrior2.challenge(warrior3, "broadsword")
+fighter2.challenge(warrior3, "spear")
+warrior3.accept_first()
+fighter2.withdraw(warrior3)
+
+
+print("\n~~~~~~~~Test Case 8~~~~~~~~~~")
+knightErrant = KnightErrant("Bill", 34, 139, 0, 3, 3, 1)
+print(knightErrant)
+knightErrant.travel()
+fighter2.challenge(knightErrant, "spear")
+warrior.challenge(knightErrant, "broadsword")
+knightErrant.decline_random()
+print(knightErrant)
+knightErrant.return_from_travel()
+warrior.withdraw(knightErrant)
+
+print("\n~~~~~~~~Test Case 9~~~~~~~~~~")
+knightErrant.accept_first()
+warrior.challenge(knightErrant, "mace")
+knightErrant.accept_random()
+knightErrant2 = KnightErrant("Steven", 78, 0, 6, 10, 3, 9)
+knightErrant.challenge(knightErrant2, "unarmed_combat")
+knightErrant2.travel()
+knightErrant2.return_from_travel()
+knightErrant2.challenge(warrior3, "unarmed_combat")
+warrior3.accept_random()
+print("\n~~~~~~~~Test Case 10~~~~~~~~~~")
+knightErrant.challenge(fighter3, "mace")
+knightErrant.travel()
+knightErrant.challenge(knightErrant2, "mace")
+knightErrant.return_from_travel()
+knightErrant.challenge(knightErrant2, "mace")
+knightErrant2.travel()
+knightErrant2.accept_first()
+knightErrant2.return_from_travel()
+knightErrant2.accept_first()
+
