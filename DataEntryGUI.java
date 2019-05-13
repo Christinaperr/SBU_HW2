@@ -21,26 +21,72 @@ public class DataEntryGUI extends Application {
         PhoneField phoneField2 = new PhoneField();
         PhoneField phoneField3 = new PhoneField();
 
-
-        nameField1.getNameField().setOnMouseExited(e -> {
-            nameField1.checkTextName();
+        nameField1.getNameField().focusedProperty().addListener(e ->
+        {
+            if (nameField1.getNameField().focusedProperty().get())
+            {
+                nameField1.getNameField().setStyle("-fx-text-fill: black;");
+            }
+            else
+            {
+                nameField1.checkTextName();
+            }
         });
-        nameField2.getNameField().setOnMouseExited(e -> {
-            nameField2.checkTextName();
+        nameField2.getNameField().focusedProperty().addListener(e ->
+        {
+            if (nameField2.getNameField().focusedProperty().get())
+            {
+                nameField2.getNameField().setStyle("-fx-text-fill: black;");
+            }
+            else
+            {
+                nameField2.checkTextName();
+            }
         });
-        nameField3.getNameField().setOnMouseExited(e -> {
-            nameField3.checkTextName();
+        nameField3.getNameField().focusedProperty().addListener(e ->
+        {
+            if (nameField3.getNameField().focusedProperty().get())
+            {
+                nameField3.getNameField().setStyle("-fx-text-fill: black;");
+            }
+            else
+            {
+                nameField3.checkTextName();
+            }
         });
-        phoneField1.getPhoneField().setOnMouseExited(e -> {
-            phoneField1.checkTextPhone();
+        phoneField1.getPhoneField().focusedProperty().addListener(e ->
+        {
+            if (phoneField1.getPhoneField().focusedProperty().get())
+            {
+                phoneField1.getPhoneField().setStyle("-fx-text-fill: black;");
+            }
+            else
+            {
+                phoneField1.checkTextPhone();
+            }
         });
-        phoneField2.getPhoneField().setOnMouseExited(e -> {
-            phoneField2.checkTextPhone();
+        phoneField2.getPhoneField().focusedProperty().addListener(e ->
+        {
+            if (phoneField2.getPhoneField().focusedProperty().get())
+            {
+                phoneField2.getPhoneField().setStyle("-fx-text-fill: black;");
+            }
+            else
+            {
+                phoneField2.checkTextPhone();
+            }
         });
-        phoneField3.getPhoneField().setOnMouseExited(e -> {
-            phoneField3.checkTextPhone();
+        phoneField3.getPhoneField().focusedProperty().addListener(e ->
+        {
+            if (phoneField3.getPhoneField().focusedProperty().get())
+            {
+                phoneField3.getPhoneField().setStyle("-fx-text-fill: black;");
+            }
+            else
+            {
+                phoneField3.checkTextPhone();
+            }
         });
-
 
         nameField2.checkTextName();
         nameField3.checkTextName();
